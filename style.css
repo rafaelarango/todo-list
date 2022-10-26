@@ -21,3 +21,27 @@ body {
     height: 100vh;
     font-family: 'Prompt', sans-serif;
 }
+
+/* Contenedor principal */
+.container {
+    max-width: 80%;
+    width: 400px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+/* Perfil */
+.perfil h1 {
+    color: var(--while)
+}
+
+.perfil span{
+    color: var(--while);
+    /* Para separar las letras */
+    letter-spacing: 1px;
+}
+
+#fecha {
+    color: var(--while);
+    padding: 50px 0px 5px 0px;
+}
