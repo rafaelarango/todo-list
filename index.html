@@ -9,7 +9,8 @@
 
     <link rel="stylesheet" href="style.css">
     <!-- iconos de W3Shool -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 
 </head>
 
@@ -24,10 +25,24 @@
         <div class="agregar-tareas">
             <input type="text" id="input" placeholder="agrega tu tarea">
             <!-- Vamos a agregar iconos desde  -->
-            <i id="boton-enter" class="	fa fa-plus-circle"></i> 
+            <i id="boton-enter" class="	fa fa-plus-circle"></i>
         </div>
 
-        
+        <div class="seccion-tareas">
+            <h3>Estas son mis tareas pendientes</h3>
+            <ul id="listas">
+                <!-- Estos elementos van ha estar agregados desde nuestro JS -->
+                <!-- Cada elemento se compone ademas de un texto, un icono de realizado y otro de eliminado -->
+                <li id="elemento">
+                    <i class="far fa-circle co" id="0" data="realizado"></i>
+                    <p class="text">lavar la Ropa</p>
+                    <i class="fas fa-trash de" id="0" data="eliminado"></i>
+                </li>
+
+
+            </ul>
+
+        </div>
 
     </div>
 
