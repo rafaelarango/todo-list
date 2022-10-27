@@ -30,9 +30,9 @@ function agregarTarea(tarea, id, realizado, eliminado) {
     // Recuerda que con `` js puede entender html
     const elemento = `
                         <li id="elemento">
-                            <i class="far fa-circle co" id="0" data="realizado"></i>
-                            <p class="text">lavar la Ropa</p>
-                            <i class="fas fa-trash de" id="0" data="eliminado"></i>
+                            <i class="far fa-circle co" id="${id}" data="realizado"></i>
+                            <p class="text">${tarea}</p>
+                            <i class="fas fa-trash de" id="${id}" data="eliminado"></i>
                         </li>
 
                     `;
