@@ -34,5 +34,6 @@ function agregarTarea(tarea, id, realizado, eliminado) {
                         </li>
     
                     `
-// Vamos a insertal elementos con JS
+// Vamos a insertar elementos con JS
+    lista.insertAdjacentElement();
 }
