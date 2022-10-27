@@ -2,13 +2,15 @@
 const fecha = document.querySelector("#fecha");
 
 // Captutamos el id de las listas que vamos a crear no en html sino desde js con la funcion agrerar tarea
-const listas = document.querySelector("#lista");
+const listas = document.querySelector("#listas");
 
 // Capturamos otros id que vamos a ir solicitando
 const elemento = document.querySelector("#elemento");
 const input = document.querySelector("#input");
 const botonEnter = document.querySelector("#boton-enter");
 
+// id para los elementos que van incrementando al agregar mas tareas
+let id = 0;
 
 // Creaccion de fecha actualizada 
 const FECHA = new Date();
@@ -32,11 +34,41 @@ function agregarTarea(tarea, id, realizado, eliminado) {
                             <p class="text">lavar la Ropa</p>
                             <i class="fas fa-trash de" id="0" data="eliminado"></i>
                         </li>
+
+                    `;
     
-                    `
-// Vamos a insertar elementos con JS
-listas.insertAdjacentElement('beforeend', elemento )
-    
+    // Vamos a insertar elementos con JS
+    listas.insertAdjacentHTML('beforeend', elemento);
+
 }
+
+
+// Creamos 2 escuchadores de Eventos - Enter en el imput y Click en el boton 
+//Click en el Boton
+botonEnter.addEventListener('click', () => {
+    // Capturamos el valor del imput
+    const tarea = input.value;
+
+    // Ejecutamos el evento si la tarea si existe 
+    if (tarea) {
+        agregarTarea(tarea, id, false, false)
+    }
+
+})
+
+// Enter en el input
+document.addEventListener('keyup', function (event) {
+
+    if (event.key == "Enter") {
+        const tarea = input.value;
+
+        if (tarea) {
+            agregarTarea(tarea, id, false, false)
+
+            input.value = '';
+            id++
+        }
+        }
+})
 
 
