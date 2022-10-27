@@ -2,7 +2,7 @@
 const fecha = document.querySelector("#fecha");
 
 // Captutamos el id de las listas que vamos a crear no en html sino desde js con la funcion agrerar tarea
-const lista = document.querySelector("#lista");
+const listas = document.querySelector("#lista");
 
 // Capturamos otros id que vamos a ir solicitando
 const elemento = document.querySelector("#elemento");
@@ -35,5 +35,8 @@ function agregarTarea(tarea, id, realizado, eliminado) {
     
                     `
 // Vamos a insertar elementos con JS
-    lista.insertAdjacentElement();
+listas.insertAdjacentElement('beforeend', elemento )
+    
 }
+
+
