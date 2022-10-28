@@ -36,7 +36,7 @@ function agregarTarea(tarea, id, realizado, eliminado) {
                         </li>
 
                     `;
-    
+
     // Vamos a insertar elementos con JS
     listas.insertAdjacentHTML('beforeend', elemento);
 
@@ -68,7 +68,22 @@ document.addEventListener('keyup', function (event) {
             input.value = '';
             id++
         }
-        }
+    }
 })
 
+// Evento para cambiar los estados de las tareas REALIZADA - ELIMINADA
 
+listas.addEventListener('click', function(){
+    const element = event.target;
+    const elementData = element.attributes.data.valeu;
+
+    console.log(element);
+    console.log(element.attributes);
+    console.log(element.attributes.data);
+    console.log(element.attributes.data.value)
+
+
+
+
+
+})
