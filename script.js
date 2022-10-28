@@ -73,17 +73,21 @@ document.addEventListener('keyup', function (event) {
 
 // Evento para cambiar los estados de las tareas REALIZADA - ELIMINADA
 
-listas.addEventListener('click', function(){
+listas.addEventListener('click', function () {
     const element = event.target;
     const elementData = element.attributes.data.valeu;
 
-    console.log(element);
-    console.log(element.attributes);
-    console.log(element.attributes.data);
-    console.log(element.attributes.data.value)
+    console.log(elementData)
 
-
-
-
+    if (elementData == "realizado") {
+        tareaRealizada(element);
+    } else if (elementData == "eliminado") {
+        tareaEliminada(element);
+        console.log("eliminado")
+    }
+    // console.log(element);
+    // console.log(element.attributes);
+    // console.log(element.attributes.data);
+    // console.log(element.attributes.data.value)
 
 })
