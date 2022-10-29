@@ -9,6 +9,9 @@ const elemento = document.querySelector("#elemento");
 const input = document.querySelector("#input");
 const botonEnter = document.querySelector("#boton-enter");
 
+const check = "fa-check-circle";
+const uncheck = "fa-circle";
+
 // id para los elementos que van incrementando al agregar mas tareas
 let id = 0;
 
@@ -26,21 +29,35 @@ fecha.innerHTML = FECHA.toLocaleDateString('es', {
 // Funcion agregar tarea
 // Le vamos a pasar 4 parametros, que son los estados de la funcion
 function agregarTarea(tarea, id, realizado, eliminado) {
-
+    const REALIZADO = realizado ? check : uncheck; // si esta realizado true check, flase uncheck
     // Recuerda que con `` js puede entender html
     const elemento = `
                         <li id="elemento">
-                            <i class="far fa-circle co" id="${id}" data="realizado"></i>
+                            <i class="far ${REALIZADO} co" id="${id}" data="realizado"></i>
                             <p class="text">${tarea}</p>
                             <i class="fas fa-trash de" id="${id}" data="eliminado"></i>
                         </li>
-
                     `;
-
     // Vamos a insertar elementos con JS
     listas.insertAdjacentHTML('beforeend', elemento);
 
 }
+
+
+// Funcion Tarea rezlizada
+
+function tareaRealizada(element){
+    element.classList.toggle(check);
+    element.classList.toggle(uncheck);
+
+}
+
+
+
+// F
+
+
+
 
 
 // Creamos 2 escuchadores de Eventos - Enter en el imput y Click en el boton 
@@ -75,8 +92,8 @@ document.addEventListener('keyup', function (event) {
 
 listas.addEventListener('click', function () {
     const element = event.target;
-    const elementData = element.attributes.data.valeu;
-
+    const elementData = element.attributes.data.value;
+    // Prueba de que capturamos el valor de la data al darle click a los iconos 
     console.log(elementData)
 
     if (elementData == "realizado") {
