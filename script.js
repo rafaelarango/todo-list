@@ -11,6 +11,7 @@ const botonEnter = document.querySelector("#boton-enter");
 
 const check = "fa-check-circle";
 const uncheck = "fa-circle";
+const lineThorugt = 'line-through';
 
 // id para los elementos que van incrementando al agregar mas tareas
 let id = 0;
@@ -29,12 +30,13 @@ fecha.innerHTML = FECHA.toLocaleDateString('es', {
 // Funcion agregar tarea
 // Le vamos a pasar 4 parametros, que son los estados de la funcion
 function agregarTarea(tarea, id, realizado, eliminado) {
-    const REALIZADO = realizado ? check : uncheck; // si esta realizado true check, false uncheck
+    const REALIZADO = realizado ? check : uncheck; // Es un operador ternario. si esta realizado true check, false uncheck
+    const LINE = realizado ? lineThorugt : '';
     // Recuerda que con `` js puede entender html
     const elemento = `
                         <li id="elemento">
                             <i class="far ${REALIZADO} co" id="${id}" data="realizado"></i>
-                            <p class="text">${tarea}</p>
+                            <p class="text ${LINE}">${tarea}</p>
                             <i class="fas fa-trash de" id="${id}" data="eliminado"></i>
                         </li>
                     `;
@@ -48,7 +50,9 @@ function agregarTarea(tarea, id, realizado, eliminado) {
 
 function tareaRealizada(element) {
     element.classList.toggle(check);
-     element.classList.toggle(uncheck);
+    element.classList.toggle(uncheck);
+    // si nuestra tarea esta realizada tachamos nuestro texto
+    element.parentNode.querySelector('.text').classList.toggle(lineThorugt)
 
 }
 
