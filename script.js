@@ -44,11 +44,11 @@ function agregarTarea(tarea, id, realizado, eliminado) {
 }
 
 
-// Funcion Tarea rezlizada
+// Funcion Tarea realizada
 
-function tareaRealizada(element){
+function tareaRealizada(element) {
     element.classList.toggle(check);
-    element.classList.toggle(uncheck);
+     element.classList.toggle(uncheck);
 
 }
 
@@ -99,7 +99,7 @@ listas.addEventListener('click', function () {
     if (elementData == "realizado") {
         tareaRealizada(element);
     } else if (elementData == "eliminado") {
-        tareaEliminada(element);
+        // tareaEliminada(element);
         console.log("eliminado")
     }
     // console.log(element);
