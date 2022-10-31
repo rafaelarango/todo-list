@@ -29,7 +29,7 @@ fecha.innerHTML = FECHA.toLocaleDateString('es', {
 // Funcion agregar tarea
 // Le vamos a pasar 4 parametros, que son los estados de la funcion
 function agregarTarea(tarea, id, realizado, eliminado) {
-    const REALIZADO = realizado ? check : uncheck; // si esta realizado true check, flase uncheck
+    const REALIZADO = realizado ? check : uncheck; // si esta realizado true check, false uncheck
     // Recuerda que con `` js puede entender html
     const elemento = `
                         <li id="elemento">
