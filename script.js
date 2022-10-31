@@ -30,6 +30,9 @@ fecha.innerHTML = FECHA.toLocaleDateString('es', {
 // Funcion agregar tarea
 // Le vamos a pasar 4 parametros, que son los estados de la funcion
 function agregarTarea(tarea, id, realizado, eliminado) {
+
+    if(eliminado){return} // Si el elemento esta eliminado no me retorne nada
+
     const REALIZADO = realizado ? check : uncheck; // Es un operador ternario. si esta realizado true check, false uncheck
     const LINE = realizado ? lineThorugt : '';
     // Recuerda que con `` js puede entender html
@@ -47,7 +50,6 @@ function agregarTarea(tarea, id, realizado, eliminado) {
 
 
 // Funcion Tarea realizada
-
 function tareaRealizada(element) {
     element.classList.toggle(check);
     element.classList.toggle(uncheck);
@@ -58,7 +60,15 @@ function tareaRealizada(element) {
 
 
 
-// F
+// Funcion Tarea eliminada
+function tareaEliminada(element){
+    // Cual es el padre del elemento y cual es el padre del padre del elemento
+    // console.log(element.parentNode)
+    // console.log(element.parentNode.parentNode.parentNode)
+
+    element.parentNode.parentNode.removeChild(element.parentNode)
+
+}
 
 
 
@@ -98,12 +108,13 @@ listas.addEventListener('click', function () {
     const element = event.target;
     const elementData = element.attributes.data.value;
     // Prueba de que capturamos el valor de la data al darle click a los iconos 
-    console.log(elementData)
+    // console.log(elementData)
 
     if (elementData == "realizado") {
         tareaRealizada(element);
+        console.log("realizado")
     } else if (elementData == "eliminado") {
-        // tareaEliminada(element);
+        tareaEliminada(element);
         console.log("eliminado")
     }
     // console.log(element);
