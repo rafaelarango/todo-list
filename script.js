@@ -74,7 +74,7 @@ function tareaEliminada(element) {
     // console.log(element.parentNode.parentNode.parentNode)
 
     element.parentNode.parentNode.removeChild(element.parentNode);
-    LIST(element.id).eliminado = true;
+    LIST[element.id].eliminado = true;
 
 }
 
@@ -159,16 +159,27 @@ listas.addEventListener('click', function () {
 })
 
 // Get local Storage get: optener
-
 let data = localStorage.getItem('TODO');
 
 if (data) {
     LIST = JSON.parse(data);
 
     console.log(LIST);
-
     id = LIST.lenght;
+    // Llamamos a la function cargar lista y le pasamos el array que contiene los datos del localStora. Para que este la recorra 
+    cargarLista(LIST)
+
 } else {
     LIST = [];
     id = 0;
 }
+
+// Funcion cargar lista. Porque al optener los datos del local stora se me deven de ver en pantalla y no en la consola
+function cargarLista(array) {
+    array.forEach(function (item) {
+        agregarTarea(item.nombre, item.id, item.realizado, item.eliminado)
+
+    })
+
+}
+
