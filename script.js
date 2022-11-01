@@ -14,13 +14,13 @@ const uncheck = "fa-circle";
 const lineThorugt = 'line-through';
 
 // id para los elementos que van incrementando al agregar mas tareas
-let id = 0;
+let id;
 
 // Creaccion de fecha actualizada 
 const FECHA = new Date();
 
 // array para almacenar las tareas
-let LIST = [];
+let LIST;
 
 fecha.innerHTML = FECHA.toLocaleDateString('es', {
     weekday: 'long',
@@ -61,8 +61,8 @@ function tareaRealizada(element) {
 
     LIST[element.id].realizado = LIST[element.id].realizado ? false : true;
     console.log(LIST)
-    console.log(LIST[element] )
-    console.log(LIST[element.id] )
+    console.log(LIST[element])
+    console.log(LIST[element.id])
 }
 
 
@@ -99,10 +99,10 @@ botonEnter.addEventListener('click', () => {
             realizado: false,
             eliminado: false,
         })
-    // Almaceno local mente la informacion
+        // Almaceno local mente la informacion
         localStorage.setItem('TODO', JSON.stringify(LIST))
 
-        
+
         input.value = '';
         id++
     }
@@ -158,4 +158,17 @@ listas.addEventListener('click', function () {
 
 })
 
-// Get local
+// Get local Storage get: optener
+
+let data = localStorage.getItem('TODO');
+
+if (data) {
+    LIST = JSON.parse(data);
+
+    console.log(LIST);
+
+    id = LIST.lenght;
+} else {
+    LIST = [];
+    id = 0;
+}
