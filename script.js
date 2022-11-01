@@ -57,8 +57,12 @@ function tareaRealizada(element) {
     element.classList.toggle(check);
     element.classList.toggle(uncheck);
     // si nuestra tarea esta realizada tachamos nuestro texto
-    element.parentNode.querySelector('.text').classList.toggle(lineThorugt)
+    element.parentNode.querySelector('.text').classList.toggle(lineThorugt);
 
+    LIST[element.id].realizado = LIST[element.id].realizado ? false : true;
+    console.log(LIST)
+    console.log(LIST[element] )
+    console.log(LIST[element.id] )
 }
 
 
@@ -69,7 +73,8 @@ function tareaEliminada(element) {
     // console.log(element.parentNode)
     // console.log(element.parentNode.parentNode.parentNode)
 
-    element.parentNode.parentNode.removeChild(element.parentNode)
+    element.parentNode.parentNode.removeChild(element.parentNode);
+    LIST(element.id).eliminado = true;
 
 }
 
@@ -94,8 +99,8 @@ botonEnter.addEventListener('click', () => {
             realizado: false,
             eliminado: false,
         })
-
-        console.log(LIST)
+    // Almaceno local mente la informacion
+        localStorage.setItem('TODO', JSON.stringify(LIST))
 
         
         input.value = '';
@@ -120,7 +125,7 @@ document.addEventListener('keyup', function (event) {
                 eliminado: false,
             })
 
-            console.log(LIST)
+            localStorage.setItem('TODO', JSON.stringify(LIST))
 
             input.value = '';
             id++
@@ -143,9 +148,14 @@ listas.addEventListener('click', function () {
         tareaEliminada(element);
         console.log("eliminado")
     }
+
+    localStorage.setItem('TODO', JSON.stringify(LIST))
+
     // console.log(element);
     // console.log(element.attributes);
     // console.log(element.attributes.data);
     // console.log(element.attributes.data.value)
 
 })
+
+// Get local
